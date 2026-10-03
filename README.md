@@ -46,7 +46,37 @@ If blocked:
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-### 4. Install dependencies
+### 4. Create `.env`
+
+Create a file named `.env` in the project root with the following content:
+
+```
+OLLAMA_BASE_URL=http://localhost:11434
+CHAT_MODEL=llama3.2:3b
+EMBED_MODEL=nomic-embed-text:latest
+CHROMA_DIR=./chroma_db
+UPLOAD_DIR=./uploads
+CHUNK_SIZE=800
+CHUNK_OVERLAP=100
+TOP_K=4
+TEMPERATURE=0.0
+SEED=42
+BACKEND_HOST=0.0.0.0
+BACKEND_PORT=8000
+BACKEND_URL=http://localhost:8000
+FRONTEND_PORT=8501
+FRONTEND_TITLE=DocuMind AI
+FRONTEND_ICON=📚
+MAX_TEXT_LENGTH=12000
+SUMMARY_BULLETS=8
+QUIZ_QUESTIONS=5
+QUIZ_OPTIONS=4
+ALLOWED_EXTENSIONS=pdf,docx,txt
+```
+
+The file must be named exactly `.env` — no `.txt` extension.
+
+### 5. Install dependencies
 
 ```bash
 pip install -r requirements.txt
