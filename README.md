@@ -14,38 +14,56 @@ Python 3.12+ is not supported (dependency wheels unavailable).
 
 ## Setup
 
+### 1. Clone
+
+```bash
+git clone https://github.com/YOUR_USERNAME/documind-ai.git
+cd documind-ai
 ```
+
+### 2. Pull Ollama models
+
+```bash
 ollama pull llama3.2:3b
 ollama pull nomic-embed-text
+```
 
+### 3. Create virtual environment
+
+```bash
 python -m venv venv
 ```
 
 Activate (Windows PowerShell):
-```
+
+```powershell
 .\venv\Scripts\Activate.ps1
 ```
 
 If blocked:
-```
+
+```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-Install:
-```
+### 4. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
 ## Run
 
-Terminal 1:
-```
+### Terminal 1 (from project root) — Backend
+
+```bash
 cd backend
 uvicorn main:app --reload
 ```
 
-Terminal 2:
-```
+### Terminal 2 (from project root) — Frontend
+
+```bash
 cd frontend
 streamlit run app.py
 ```
@@ -72,5 +90,5 @@ All values are set in `.env`. Nothing is hardcoded in source.
 - `CHUNK_SIZE`, `CHUNK_OVERLAP`, `TOP_K`
 - `BACKEND_URL`, `FRONTEND_PORT`
 
-Note: chromadb is pinned to 0.5.3 for compatibility with 
-langchain-chroma==0.1.4.
+Note: chromadb is pinned to `0.5.3` for compatibility with 
+`langchain-chroma==0.1.4`.
